@@ -1,0 +1,49 @@
+#product-features-table.twelve.columns.alpha.omega.taxon-features-wrapper
+
+  %h3 Features
+
+  #product-features.product-features
+    = f.fields_for :features, (f.object.features.build unless f.object.features.present?) do |fa|
+      = render 'spree/admin/features/feature_fields', f: fa
+
+    #product-features-list
+
+  .product-features-actions
+    = link_to_add_association "Add Product Feature", f, :features, class: 'icon-plus button pull-left button-default', :'data-association-insertion-node' => '#product-features-list', partial: 'spree/admin/features/feature_fields'
+
+
+
+
+:javascript
+
+  $(document).ready(function() {
+    
+    bind_sorting();
+
+    $('#product-features').on('cocoon:after-insert', function(e, insertedItem) {
+      sort_items();
+      bind_sorting();
+    });
+  });
+
+
+  bind_sorting = function() {
+    $('#product-features').sortable({
+      items: '> .product-feature',
+      distance: 50,
+      tolerance: 'pointer',
+      placeholder: 'sortable-placeholder',
+
+      update: function(event, ui) {
+        sort_items();
+      },
+    });
+  };
+
+  sort_items = function() {
+    $('input.product-feature-sort-order', $('#product-features')).each(function(index) {
+      $(this).val(index);
+    });
+  }
+
+

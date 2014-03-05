@@ -1,7 +1,7 @@
 SpreeFeatureable
 ================
 
-Introduction goes here.
+Product Features done right. Product properties are great, but sometimes you need to sell a product based on some great features. This gem allows you to add, sort and manage features for any product. 
 
 Installation
 ------------

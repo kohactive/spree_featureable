@@ -16,13 +16,14 @@
 
     .product-features-actions
       = link_to_add_association "Add Product Feature", f, :features, class: 'icon-plus button pull-left button-default', :'data-association-insertion-node' => '#product-features-list'
-      
-      .pull-right
-        = link_to "Cancel", edit_admin_product_path(@product), class: "button button-default"
-        = f.submit "Save Product Features"
 
   
-
+  %fieldset.no-border
+    .filter-actions.actions
+      = f.submit "Save Product Features"
+      %span.or or
+      = link_to "Cancel", edit_admin_product_path(@product), class: "button button-default"
+    
 
 :javascript
   
