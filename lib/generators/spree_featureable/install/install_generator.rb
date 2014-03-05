@@ -4,6 +4,14 @@ module SpreeFeatureable
 
       class_option :auto_run_migrations, :type => :boolean, :default => false
 
+      def add_javascripts
+        append_file 'app/assets/javascripts/admin/all.js', "//= require admin/spree_featureable\n"
+      end
+
+      def add_stylesheets
+        inject_into_file 'app/assets/stylesheets/admin/all.css', " *= require admin/spree_featureable\n", :before => /\*\//, :verbose => true
+      end
+
       def add_migrations
         run 'bundle exec rake railties:install:migrations FROM=spree_featureable'
       end
