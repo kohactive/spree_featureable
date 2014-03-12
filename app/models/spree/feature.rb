@@ -7,6 +7,8 @@ module Spree
 
     before_save :set_sort_order
 
+    default_scope -> { order('sort_order asc') }
+
     private
 
       def set_sort_order
