@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_featureable'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.summary     = 'Elegant, dynamic product features'
   s.description = 'Elegant, dynamic product features'
   s.required_ruby_version = '>= 1.9.3'
